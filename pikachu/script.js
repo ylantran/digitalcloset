@@ -1,16 +1,4 @@
-debugger
- if ("geolocation" in navigator) {
-  $('.js-geolocation').show(); 
-} else {
-  $('.js-geolocation').hide();
-}
 
-/* Where in the world are you? */
-$('.js-geolocation').on('click', function() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-  });
-});
 
 /* 
 * Test Locations
@@ -19,6 +7,19 @@ $('.js-geolocation').on('click', function() {
 */
 $(document).ready(function() {
   loadWeather('Seattle',''); //@params location, woeid
+  
+   if ("geolocation" in navigator) {
+    $('.js-geolocation').show(); 
+  } else {
+    $('.js-geolocation').hide();
+  }
+  
+  /* Where in the world are you? */
+  $('.js-geolocation').on('click', function() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+    });
+  });
 });
 
 function loadWeather(location, woeid) {
@@ -36,6 +37,9 @@ function loadWeather(location, woeid) {
     },
     error: function(error) {
       $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+}
     }
   });
 }
