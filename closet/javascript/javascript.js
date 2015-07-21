@@ -48,4 +48,5 @@ window.onload = function (){
   button.onclick = takePhoto;
 };  
 
-var data{};
+var data={};
+data.image
