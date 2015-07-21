@@ -1,7 +1,4 @@
-var messagesRef = new Firebase("https://fashionimages.firebaseio.com/");
-
-
- if ("geolocation" in navigator) {
+if ("geolocation" in navigator) {
   $('.js-geolocation').show(); 
 } else {
   $('.js-geolocation').hide();
@@ -35,7 +32,6 @@ function loadWeather(location, woeid) {
     }
   });
 }
-
 window.onload = function (){
   var button = document.getElementById('button');
    function takePhoto() {
@@ -44,9 +40,14 @@ window.onload = function (){
         document.getElementById("demo").innerHTML =
         person;
         document.getElementById("picture").setAttribute("src", person);
-      }}
+        
+      }
+      
+       var data={};
+      data.image= person;
+      
+      messagesRef.push(data);
+   }
   button.onclick = takePhoto;
-};  
-
-var data={};
-data.image
+};
+var messagesRef = new Firebase("https://fashionimages.firebaseio.com/");
