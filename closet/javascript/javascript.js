@@ -1,3 +1,5 @@
+var messagesRef = new Firebase("https://fashionimages.firebaseio.com/");
+
 
  if ("geolocation" in navigator) {
   $('.js-geolocation').show(); 
@@ -5,20 +7,14 @@
   $('.js-geolocation').hide();
 }
 
-/* Where in the world are you? */
 $('.js-geolocation').on('click', function() {
   navigator.geolocation.getCurrentPosition(function(position) {
-    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+    loadWeather(position.coords.latitude+','+position.coords.longitude); 
   });
 });
 
-/* 
-* Test Locations
-* Austin lat/long: 30.2676,-97.74298
-* Austin WOEID: 2357536
-*/
 $(document).ready(function() {
-  loadWeather('Seattle',''); //@params location, woeid
+  loadWeather('Seattle',''); 
 });
 
 function loadWeather(location, woeid) {
@@ -39,3 +35,17 @@ function loadWeather(location, woeid) {
     }
   });
 }
+
+window.onload = function (){
+  var button = document.getElementById('button');
+   function takePhoto() {
+      var person = prompt("Enter the image URL here:");
+      if (person != null) {
+        document.getElementById("demo").innerHTML =
+        person;
+        document.getElementById("picture").setAttribute("src", person);
+      }}
+  button.onclick = takePhoto;
+};  
+
+var data{};
