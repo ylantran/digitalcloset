@@ -44,7 +44,7 @@ window.onload = function (){
       }
       
        var data={};
-      data.image= person;
+        data.image= person;
       
       messagesRef.push(data);
    }
