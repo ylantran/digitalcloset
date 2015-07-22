@@ -5,6 +5,7 @@ body{
     font-weight:lighter;
 }
 
+
 #headerpic 
          .fit {
   max-width: 99%;
@@ -13,14 +14,8 @@ body{
       font-family:Courier;
       font-weight:lighter;
       font-size:50pt;
-        width: 300px;
-    padding: 2px;
-    border: 2px solid black;
-    margin: auto
-    text-align:center
-    
+      text-decoration: underline;
     }
-
 h2 {
     font-size:20pt;
     font-family:Courier;
@@ -53,10 +48,10 @@ html {
 
 #weather {
   width: 500px;
-  margin: 0px auto;
+  margin: 0px auto;text-align:right;
   text-align: right;
   text-transform: uppercase;
-  font color: black;
+  font color:; black;
   font-weight:lighter;
 }
 
@@ -125,18 +120,16 @@ i {
   font-size: 50px;
   font-weight: lighter;
   text-align: right;
-  text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.15);
 }
 
 #weather ul {
   margin: 0;
   padding: 0;
-  text-align:center;
   font-family:courier;
   width: 300px;
   padding: 2px;
-  border: 2px solid black;
-  margin: 2px;
+  border: 2px solid black; text-align:right;
+  margin: 2px; text-align:right;
   
 } 
 
@@ -144,19 +137,20 @@ i {
   background: #fff;
   background: rgba(255,255,255,0.90);
   padding: 20px;
-  display: inline-block;
-  border-radius: 0px;
+  display: block;
+  border-radius: 10px;
+  text-align:right;
  
 }
 
 #weather .currently {
   margin: 0 0px;
-  text-align: center;
+  text-align:right;
 }
 
 h4 {
   font-size:25pt;
 }
-h8 {
-  
+div{
+  position:right;
 }

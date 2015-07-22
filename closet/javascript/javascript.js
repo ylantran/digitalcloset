@@ -1,3 +1,5 @@
+var ref = new Firebase("https://fashionimages.firebaseio.com/");
+
 if ("geolocation" in navigator) {
   $('.js-geolocation').show(); 
 } else {
@@ -33,21 +35,26 @@ function loadWeather(location, woeid) {
   });
 }
 window.onload = function (){
+  
   var button = document.getElementById('button');
-   function takePhoto() {
-      var person = prompt("Enter the image URL here:");
-      if (person != null) {
-        document.getElementById("demo").innerHTML =
-        person;
-        document.getElementById("picture").setAttribute("src", person);
+  //finds button
+  var takePhoto = function() {
+    //asks user for input
+    
+    var person = prompt("Enter the image URL here:");
+      
+    if (person != null) {
+      document.getElementById("picture").setAttribute("src", person);
         
-      }
-      
-       var data={};
-        data.image= person;
-      
-      messagesRef.push(data);
+    }
+     
    }
+    
+      
   button.onclick = takePhoto;
-};
-var messagesRef = new Firebase("https://fashionimages.firebaseio.com/");
+}
+
+  ref.limitToLast(10).on('child_added', function (snapshot) {
+  var data = snapshot.val();
+  takePhoto(data.image);
+});
